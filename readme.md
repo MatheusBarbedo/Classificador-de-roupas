@@ -18,13 +18,17 @@ O modelo foi treinado com imagens reais de roupas e exportado no formato web par
 
 ## 📁 Estrutura de Pastas
 
-├── index.html
-├── style.css
-├── script.js
-└── my_model/
-    ├── model.json
-    ├── metadata.json
-    └── weights.bin
+```bash
+classificador-roupas/
+
+├── index.html          # Página principal da aplicação
+├── style.css           # Estilos da aplicação
+├── script.js           # Lógica JavaScript
+├── my_model/           # Pasta contendo o modelo treinado
+│   ├── model.json      # Configuração do modelo
+│   ├── metadata.json   # Metadados do modelo
+│   └── weights.bin     # Pesos da rede neural
+```
 
 ## ▶️ Como rodar o projeto
 
