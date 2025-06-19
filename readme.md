@@ -1,4 +1,5 @@
-# 👕 Classificador e Detector de Roupas
+# 👕 Classificador de Roupas 
+# 🔍 Detector de objetos
 
 Este projeto é uma aplicação web interativa que permite:
 
