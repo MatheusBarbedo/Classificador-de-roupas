@@ -1,55 +1,92 @@
-# 👕 Classificador de Roupas
+# 👕 Classificador e Detector de Roupas
 
-Este é um projeto simples de classificação de imagens utilizando um modelo treinado com [Teachable Machine](https://teachablemachine.withgoogle.com/) e executado com [TensorFlow.js](https://www.tensorflow.org/js).
+Este projeto é uma aplicação web interativa que permite:
 
-A aplicação permite ao usuário **enviar uma imagem de uma roupa** (camisa, calça, casaco ou vestido) e o sistema classifica automaticamente o tipo da peça.
+- 👗 **Classificar roupas** a partir de imagens (camisa, calça, casaco, vestido)  
+- 🔍 **Detectar objetos** em imagens utilizando o modelo pré-treinado **COCO-SSD**
 
-## 🧠 Modelo
+Tudo isso diretamente no navegador, sem necessidade de backend ou instalação de bibliotecas.
 
-O modelo foi treinado com imagens reais de roupas e exportado no formato web para uso local (arquivos `.json`, `.bin` e `.metadata.json`).
+---
 
-## 🛠 Tecnologias utilizadas
+## 🚀 Funcionalidades
 
-- HTML5
-- CSS3
-- JavaScript (puro)
-- TensorFlow.js
-- Teachable Machine
+| Módulo           | Descrição |
+|------------------|----------|
+| 👕 **Classificador** | Utiliza modelo treinado no [Teachable Machine](https://teachablemachine.withgoogle.com/) para identificar o tipo de roupa enviado pelo usuário |
+| 🖼 **Detector**      | Usa o modelo [COCO-SSD](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd) do TensorFlow.js para detectar e rotular objetos em uma imagem |
 
-## 📁 Estrutura de Pastas
+---
 
-```bash
+## 🧠 Modelo de Classificação
+
+O modelo foi treinado com imagens reais de roupas e exportado para web usando a Teachable Machine.
+
+Ele é composto por:
+
+- `model.json` – estrutura do modelo
+- `metadata.json` – metadados e nomes das classes
+- `weights.bin` – pesos da rede neural
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- HTML5 + CSS3 + JavaScript (vanilla)
+- [TensorFlow.js](https://www.tensorflow.org/js)
+- [Teachable Machine](https://teachablemachine.withgoogle.com/)
+- [COCO-SSD](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
 classificador-roupas/
-
-├── index.html          # Página principal da aplicação
-├── style.css           # Estilos da aplicação
-├── script.js           # Lógica JavaScript
-├── my_model/           # Pasta contendo o modelo treinado
-│   ├── model.json      # Configuração do modelo
-│   ├── metadata.json   # Metadados do modelo
-│   └── weights.bin     # Pesos da rede neural
+│
+├── index.html               # Página principal com navegação entre os módulos
+├── style.css                # Estilo visual responsivo e moderno
+├── script.js                # Lógica principal da aplicação
+│
+├── my_model/                # Modelo treinado com Teachable Machine
+│   ├── model.json
+│   ├── metadata.json
+│   └── weights.bin
 ```
 
-## ▶️ Como rodar o projeto
+---
 
-> ⚠️ Este projeto **precisa ser executado em um servidor local via liver server**.
+## ▶️ Como Executar Localmente
+
+⚠️ Por se tratar de uma aplicação que carrega arquivos via JavaScript, **é obrigatório usar um servidor local** (como o Live Server).
 
 ### ✅ Requisitos
 
 - Navegador moderno (Chrome, Brave, Firefox...)
-- Editor de código (VS Code recomendado)
-- Extensão **Live Server** no VS Code
+- [VS Code](https://code.visualstudio.com/)
+- Extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
-### 🧪 Passo a passo com Live Server (VS Code)
+### 📦 Passo a Passo
 
-1. Clone o repositorio em sua maquina local.
-2. Abra o VS Code e instale a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-3. Abra o repositorio pelo vscode e com liveserver ja instalado, selecione no canto inferior direito **"Go Live"**.
-4. O navegador será aberto automaticamente e o sistema estará pronto para uso.
-5. Envie uma imagem de roupa e clique em **"Classificar"** para ver o resultado.
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/MatheusBarbedo/Classificador-de-roupas
+   ```
+2. Abra o projeto no VS Code  
+3. Instale a extensão **Live Server**  
+4. Clique em **"Go Live"** no canto inferior direito  
+5. O navegador abrirá em `http://127.0.0.1:5500` e você poderá utilizar as funcionalidades
 
-### 🚫 Não funciona com duplo clique no `index.html`
+---
 
-Por segurança, navegadores modernos bloqueiam o acesso a arquivos locais via `file://`, impedindo que o modelo carregue corretamente.
+## ❌ Evite abrir com duplo clique
 
-Use sempre o Live Server para rodar o projeto localmente.
+A aplicação **não funcionará corretamente** se você abrir o `index.html` direto com duplo clique, pois os navegadores bloqueiam o carregamento de arquivos locais (`file://`).
+
+> Use sempre um servidor local (Live Server, http-server, etc).
+
+---
+
+## 📄 Licença
+
+Este projeto é open-source e livre para fins educacionais e experimentais.

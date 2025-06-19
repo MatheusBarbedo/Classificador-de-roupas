@@ -1,37 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
   text-align: center;
-  padding: 30px;
 }
 
-h1 {
-  margin-bottom: 20px;
+.nav {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  background-color: #007BFF;
+.nav button {
+  background-color: #007bff;
   color: white;
   border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
+.nav button:hover {
   background-color: #0056b3;
 }
 
-#webcam-container {
-  display: inline-block;
-  margin-top: 10px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+.page-section {
+  display: none;
+  max-width: 700px;
+  background: #fff;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-#label-container {
-  margin-top: 20px;
-  font-size: 18px;
+.page-section:not(.hidden) {
+  display: block;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 24px;
+  color: #222;
+}
+
+.input-label {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.input-label input[type="file"] {
+  display: none;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.preview-container {
+  margin-top: 1rem;
+}
+
+.image-preview {
+  width: 224px;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+}
+
+#canvas-container {
+  margin-top: 1.5rem;
+}
+
+canvas {
+  display: block;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto 0;
+}
+
+#label-container,
+#output {
+  margin-top: 1.5rem;
+  text-align: left;
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.status-msg {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Classificador de Roupas</title>
-  <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <title>Classificador e Detector</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2"></script>
 </head>
 <body>
-  <h1>Classificador de Roupas 👕👖🧥👗</h1>
+  <div class="nav">
+    <button onclick="showSection('classificador')">👕 Classificar</button>
+    <button onclick="showSection('detector')">🔍 Detectar Objetos</button>
+  </div>
 
-  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
-  <br><br>
-  <img id="preview" width="224" />
-  <br><br>
-  <button onclick="classificar()">Classificar</button>
+  <section id="classificador" class="page-section hidden">
+    <h1>👕 Classificador de Roupas</h1>
+    <div id="status-classificador" class="status-msg hidden">Carregando modelo...</div>
 
-  <div id="label-container"></div>
+    <div class="content-wrapper hidden">
+      <label class="input-label">
+        <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+        📁 Escolher imagem
+      </label>
+      <button onclick="classificar()">Classificar</button>
+
+      <div class="preview-container">
+        <img id="preview" class="image-preview" />
+      </div>
+
+      <div id="label-container"></div>
+    </div>
+  </section>
+
+  <section id="detector" class="page-section hidden">
+    <h1>🖼️ Detecção com COCO-SSD</h1>
+    <div id="status-detector" class="status-msg hidden">Carregando modelo...</div>
+
+    <div class="content-wrapper hidden">
+      <label class="input-label">
+        <input type="file" id="imageUpload" accept="image/*" onchange="handleCOCOUpload(event)">
+        📁 Escolher imagem
+      </label>
+      <button onclick="classificarCOCO()">Classificar</button>
+
+      <div id="canvas-container"><canvas id="canvas"></canvas></div>
+      <button onclick="downloadCanvas()">📥 Baixar Imagem com Detecções</button>
+      <pre id="output"></pre>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
