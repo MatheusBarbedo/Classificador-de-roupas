@@ -71,7 +71,7 @@ classificador-roupas/
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/MatheusBarbedo/Classificador-de-roupas
+   https://github.com/MatheusBarbedo/classificador-e-detector-web.git
    ```
 2. Abra o projeto no VS Code  
 3. Instale a extensão **Live Server**  
